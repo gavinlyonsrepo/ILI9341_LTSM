@@ -1,19 +1,41 @@
 #######################################
-# Syntax Coloring Map For ILI9341
+# Syntax Coloring Map For ILI9341_LTSM
 #######################################
 
 #######################################
 # Datatypes (KEYWORD1)
 #######################################
-
 ILI9341_LTSM	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
-
+setAddrWindow	KEYWORD2
+SetupGPIO_SPI	KEYWORD2
+SetupScreenSize	KEYWORD2
+ILI9341Initialize	KEYWORD2
+HighFreqDelayGet	KEYWORD2
+HighFreqDelaySet	KEYWORD2
+PowerDown	KEYWORD2
+EnableDisplay	KEYWORD2
+setRotation	KEYWORD2
+invertDisplay	KEYWORD2
+scrollTo	KEYWORD2
+setScrollMargins	KEYWORD2
+NormalMode	KEYWORD2
+ResetPin	KEYWORD2
+readDiagByte	KEYWORD2
 
 #######################################
-# Constants (LITERAL1)
+# Constants and Enums (LITERAL1)
 #######################################
+ILI9341_RDID	LITERAL1
+ILI9341_RDSTATUS	LITERAL1
+ILI9341_RDMODE	LITERAL1
+ILI9341_RDMADCTL	LITERAL1
+ILI9341_RDPIXFMT	LITERAL1
+ILI9341_RDIMGFMT	LITERAL1
+ILI9341_RDSIGNAL	LITERAL1
+ILI9341_RDSELFDIAG	LITERAL1
+
 
