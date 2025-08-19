@@ -12,10 +12,7 @@
 	* [Examples](#examples)
 	* [SPI](#spi)
 * [Hardware](#hardware)
-* [Tested](#tested)
 * [Output](#output)
-* [Notes and Issues](#notes-and-issues)
-
 
 ## Overview
 
