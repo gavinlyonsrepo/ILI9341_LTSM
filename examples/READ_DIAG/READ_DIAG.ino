@@ -82,8 +82,8 @@ void printDiagnostic(void) {
   Serial.println(F("==== ILI9341 Diagnostics ===="));
   uint8_t returnByte;
 
-  //  
-/*
+  //  following comment block not implented.
+  /*
   // Display ID (3 bytes) : Not supported on many ILI9341 panels (MISO not wired, returns 0x00/0xFF):
   Serial.print(F("Display ID Info: "));
   for (uint8_t i = 0; i < 3; i++) {

@@ -4,7 +4,8 @@
 	@brief  Example cpp file for ili9341 library. Tests frame buffer mode
 	@note   See USER OPTIONS 1-2 in SETUP function
 			    dislib16_ADVANCED_SCREEN_BUFFER_ENABLE must be enabled for this example
-			    or it will not compile. Needs large framebuffer of heap memory : 240x320x2 bytes. 
+			    or it will not compile. Needs large framebuffer of heap memory : 240x320x2 bytes.
+			    May not work on your device. 
 	@test
 		-# Test 1500 Frame buffer mode.
 */

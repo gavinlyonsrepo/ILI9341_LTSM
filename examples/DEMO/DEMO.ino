@@ -4,7 +4,7 @@
 	@author Gavin Lyons.
 	@note   See USER OPTIONS 1-2 in SETUP function
 	@test 
-		-# 450 Demo Unit Circle with Sine & Cos Wave
+		-# Test 450 Demo Unit Circle with Sine & Cos Wave
 */
 
 // libraries

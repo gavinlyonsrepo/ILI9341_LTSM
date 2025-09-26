@@ -372,9 +372,9 @@ uint8_t ILI9341_LTSM::readDiagByte(ILI9341_ReadRegister_e reg, uint8_t index) {
 	uint8_t result = 0;
 	if (_hardwareSPI) {
 		// ---- Hardware SPI path ----
-		spiStartTransaction();          // your wrapper (begins SPI.beginTransaction)
+		spiStartTransaction();
 		DISPLAY16_CS_SetLow;
-		// 1) Set read index/preamble (same trick Adafruit uses)
+		// 1) Set read index/preamble
 		DISPLAY16_DC_SetLow;            // command
 		SPI.transfer(0xD9);
 		DISPLAY16_DC_SetHigh;           // data
@@ -383,9 +383,9 @@ uint8_t ILI9341_LTSM::readDiagByte(ILI9341_ReadRegister_e reg, uint8_t index) {
 		DISPLAY16_DC_SetLow;            // command
 		SPI.transfer(reg);
 		DISPLAY16_DC_SetHigh;           // data
-		result= SPI.transfer(0x00);       // read the byte (no extra dummy needed after 0xD9 preamble)
+		result= SPI.transfer(0x00);     // read the byte (no extra dummy needed after 0xD9 preamble)
 		DISPLAY16_CS_SetHigh;
-		spiEndTransaction();            // your wrapper (ends transaction)
+		spiEndTransaction(); 
 	} else {
 		// check if MISO pin set 
 		if (!_misoPinOn)

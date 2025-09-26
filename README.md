@@ -12,7 +12,10 @@
 	* [Examples](#examples)
 	* [SPI](#spi)
 * [Hardware](#hardware)
+* [Tested](#tested)
 * [Output](#output)
+* [Notes and Issues](#notes-and-issues)
+
 
 ## Overview
 
@@ -62,6 +65,8 @@ There are 6 example files included.
 | READ DIAGS| Read display diagnostics | Requires an extra GPIO pin: Miso |
 | BITMAP| 1,8 & 16 bit bitmaps tests + bitmap FPS tests| Bitmap test data is stored in arrays |
 | DEMO| A demo showing the unit circle plotted on graph | ---- |
+| DEMO_TWO| A demo showing round coloured pointer gauge | ---- |
+| DEMO_THREE| Mandlebrot set benchmark test | ---- |
 | FRAME BUFFER | Testing frame Buffer mode | dislib16 ADVANCED SCREEN BUFFER ENABLE must be enabled  |
 
 ### SPI
@@ -115,20 +120,26 @@ Connections as setup in HELLOWORLD.ino example  file.
 | 3 | CS | 15 |15 | Chip select, Use any GPIO for this line|
 | 4 | RESET | 4 |4 | If no reset pin, pass -1 in here & display will use software rst|
 | 5 | DC | 5 |5 | Data or command, Use any GPIO for this line |
-| 6 | SDI(MOSI) | SPI MOSI | 13 | |
-| 7 | SCLK | SPI CLK | 12 |  |
+| 6 | SDI(MOSI) | SPI MOSI | 23(ESP32) | |
+| 7 | SCLK | SPI CLK | 18(ESP32) |  |
 | 8 | LED | VCC |VCC |CAUTION Your display may need current limit resistor|
-| 9 | SDO(MISO) | SPI MISO | 14 |Only needed to read diagnostics from TFT see READ DIAG example. pass -1 to not use(default) |
-| 10| T_CLK | n/a  | n/a| needed for xpt2046 touchscreen(not implemented yet) |
-| 11| T_CS | n/a | n/a |needed for xpt2046 touchscreen(not implemented yet) |
-| 12| T_DIN | n/a | n/a | needed for xpt2046 touchscreen(not implemented yet)|
-| 13 | T_DO | n/a | n/a | needed for xpt2046 touchscreen(not implemented yet)|
-| 14 | T_IRQ | n/a | n/a |needed  for xpt2046 touchscreen(not implemented yet) |
+| 9 | SDO(MISO) | SPI MISO | 19(ESP32) |Only needed to read diagnostics from TFT, see READ DIAG example. pass -1 or nothing to not use(default) |
 
 
 1. This is a 3.3V logic device do NOT connect the I/O logic lines to 5V logic device.
 2. LED Backlight control is left to user.
-3. Pins marked with T_ prefix are related to the touchscreen IC XP2046 if user is not using the touch screen do not connect these. (not implemented yet)
+
+Pins marked with T_ prefix are related to the touchscreen IC XP2046 
+if user is not using the touch screen do not connect these.
+
+| PinNum | Pin description | HW SPI  | SW SPI |note |
+| --- | --- | --- | --- | --- |
+| 10| T_CLK | Tied to SCLK  | n/a| Use any GPIO for this line |
+| 11| T_CS | GPIO2 | n/a | |
+| 12| T_DIN | Tied to MOSI | n/a | |
+| 13 | T_DO | Tied to MISO | n/a | |
+| 14 | T_IRQ | GPIO14 | n/a |Use any GPIO for this line |
+
 
 ## Output
 
