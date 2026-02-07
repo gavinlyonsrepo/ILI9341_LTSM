@@ -3,8 +3,8 @@
 	@author  Gavin Lyons
 	@brief   Example file for ili9341 library.  ILI4931_LTSM library. demo
 	@details See USER OPTIONS 1-2 in SETUP function
-            If dislib16_ADVANCED_GRAPHICS_ENABLE is not enabled it will not compile,
-				    it is in file common_dis16_data_LTSM.hpp from display16_graphics_LTSM library.
+				If dislib16_ADVANCED_GRAPHICS_ENABLE is not enabled it will not compile,
+				it is in file display16_common_LTSM from display16_LTSM library.
 	@note  Tested only on ESP32
 	@test
 		-# Test 452 round coloured gauge demo 

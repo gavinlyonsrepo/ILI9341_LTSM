@@ -67,8 +67,8 @@ void drawMandelbrot(void) {
 
   // Constants for image and fractal settings
   const int16_t bits = 20;          // Fractional resolution used for precision (higher bits = finer precision)
-  const int16_t pixelWidth = 160;   // TFT  Width in pixels
-  const int16_t pixelHeight = 120;  // TFT  Height in pixels
+  const int16_t pixelWidth = 160;   // Width of drawing in pixels
+  const int16_t pixelHeight = 120;  // Height of drawing in pixels
   const int16_t iterations = 128;   // Maximum number of iterations to check for each pixel
   // Mandelbrot set properties: Center point and coverage area in the complex plane
   float centerReal = -0.6;  // Image center point in complex plane

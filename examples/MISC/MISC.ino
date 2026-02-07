@@ -3,6 +3,7 @@
 	@brief   Example file for ili9341 arduino display Library, ILI9341_LTSM, tests Text,graphics & functions.
 	@author  Gavin Lyons.
 	@details For graphics tests 905-909 to work dislib16_ADVANCED_GRAPHICS_ENABLE must be commented in.
+				it is in file display16_common_LTSM from display16_LTSM library.
 	@note   See USER OPTIONS 1-2 in SETUP function
 
 	@test 

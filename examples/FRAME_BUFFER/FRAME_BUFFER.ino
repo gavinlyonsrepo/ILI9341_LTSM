@@ -3,9 +3,11 @@
 	@author Gavin Lyons
 	@brief  Example cpp file for ili9341 library. Tests frame buffer mode
 	@note   See USER OPTIONS 1-2 in SETUP function
-			    dislib16_ADVANCED_SCREEN_BUFFER_ENABLE must be enabled for this example
-			    or it will not compile. Needs large framebuffer of heap memory : 240x320x2 bytes.
-			    May not work on your device. 
+			dislib16_ADVANCED_SCREEN_BUFFER_ENABLE must be enabled for this example
+			or it will not compile. 
+			It is in file display16_common_LTSM from display16_LTSM library.
+			Needs large frame-buffer of heap memory : 153,600 (240x320x2) bytes.
+			May not work on your device. 
 	@test
 		-# Test 1500 Frame buffer mode.
 */

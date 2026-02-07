@@ -56,7 +56,7 @@ the dependency 'display16_LTSM' repository, [URL github link](https://github.com
 
 ## Software
 
-There are 6 example files included.
+Example files included:
 
 | Filename .ino | Function  | Note |
 | --- | --- | --- |
@@ -67,6 +67,7 @@ There are 6 example files included.
 | DEMO| A demo showing the unit circle plotted on graph | ---- |
 | DEMO_TWO| A demo showing round coloured pointer gauge | ---- |
 | DEMO_THREE| Mandlebrot set benchmark test | ---- |
+| DEMO_FOUR| A demo showing control panel | ---- |
 | FRAME BUFFER | Testing frame Buffer mode | dislib16 ADVANCED SCREEN BUFFER ENABLE must be enabled  |
 
 ### SPI

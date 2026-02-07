@@ -1,19 +1,19 @@
 /*! 
 	@file    READ_DIAG.ino
-	@brief   Example file for ili9341 arduino display Library, ILI9341_LTSM, read diagnostics from Display
-           Useful for diagnostics, debug and testing.
+	@brief   Example file for ili9341 arduino display Library, ILI9341_LTSM, 
+				read diagnostics from Display. Useful for diagnostics, debug and testing.
 	@author  Gavin Lyons.
-  @details ILI9341 Read Diagnostics, Results from author's display :
-          -# Display Power Mode: 0x94
-          -# MADCTL Mode: 0x48
-          -# Pixel Format: 0x05
-          -# Image Format: 0x80
-          -# Self Diagnostic: 0xC0
+	@details ILI9341 Read Diagnostics, Results from author's display :
+			-# Display Power Mode: 0x94
+			-# MADCTL Mode: 0x48
+			-# Pixel Format: 0x05
+			-# Image Format: 0x80
+			-# Self Diagnostic: 0xC0
 	@note   See USER OPTIONS 1-2 in SETUP function, An extra pin 'MISO' is required for this example,
-          to read data back from Display. In Software SPI pick any GPIO , Hardware tied to MCU SPI
-          interface
+			to read data back from Display. In Software SPI pick any GPIO , Hardware tied to MCU SPI
+			interface
 	@test 
-    -# Test 500 Read Diagnostics from display
+	-# Test 500 Read Diagnostics from display
 */
 
 // libraries

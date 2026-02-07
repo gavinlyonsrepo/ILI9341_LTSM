@@ -85,7 +85,9 @@ void ILI9341_LTSM::SetupScreenSize(uint16_t width_TFT, uint16_t height_TFT)
 */
 void ILI9341_LTSM::ILI9341Initialize()
 {
-	ResetPin();
+	if (_resetPinOn == true){
+		ResetPin();
+	}
 	DISPLAY16_DC_SetDigitalOutput;
 	DISPLAY16_DC_SetLow;
 	DISPLAY16_CS_SetDigitalOutput;
@@ -155,6 +157,11 @@ void ILI9341_LTSM::cmdInit(void)
 	uint8_t seqGammaP[] {0x0F,0x31,0x2B,0x0C,0x0E,0x08,0x4E,0xF1,0x37,0x07,0x10,0x03,0x0E,0x09,0x00};
 	uint8_t seqGammaN[] {0x00,0x0E,0x14,0x03,0x11,0x07,0x31,0xC1,0x48,0x08,0x0F,0x0C,0x31,0x36,0x0F};
 
+	if (_resetPinOn == false){
+		// Force controller into known state( S/W Reset default values)
+		writeCommand(ILI9341_SWRESET); 	// When the Software Reset command is written, it causes a software reset.
+		MILLISEC_DELAY(5); // Wait 5mS for software reset to complete per datasheet page 91, 120mS if in sleep Out mode
+	}
 	// Section 0
 	writeCommand(ILI9341_DISPOFF); // Display off
 	delay(5);
@@ -343,19 +350,16 @@ void ILI9341_LTSM::setAddrWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t
 */
 void ILI9341_LTSM::ResetPin() 
 {
-	if (_resetPinOn == true)
-	{
-		DISPLAY16_RST_SetDigitalOutput;
-		DISPLAY16_RST_SetHigh;
-		delay(5);
-		DISPLAY16_RST_SetLow;
-		delay(20);
-		DISPLAY16_RST_SetHigh;
-		delay(120);
-	}else{
-		writeCommand(ILI9341_SWRESET); // no hw reset pin, software reset.
-		delay(120);
+	if (_resetPinOn == false){
+		return; // if no reset pin, exit method
 	}
+	DISPLAY16_RST_SetDigitalOutput;
+	DISPLAY16_RST_SetHigh;
+	delay(5);
+	DISPLAY16_RST_SetLow;
+	delay(20);
+	DISPLAY16_RST_SetHigh;
+	delay(120);
 }
 
 /*!
