@@ -9,13 +9,14 @@
 * [Dependency](#dependency)
 * [Documentation](#documentation)
 * [Software](#software)
-	* [Examples](#examples)
-	* [SPI](#spi)
+  * [Dependency user options](#dependency-user-options)
+  * [Examples](#examples)
+  * [Setup](#setup)
 * [Hardware](#hardware)
 * [Tested](#tested)
 * [Output](#output)
-* [Notes and Issues](#notes-and-issues)
 
+---
 
 ## Overview
 
@@ -34,9 +35,13 @@ C++ Library for the ILI9341 TFT SPI LCD for the Arduino Eco-system.
 8. Read Diagnostics function.
 9. [Project url link](https://github.com/gavinlyonsrepo/ILI9341_LTSM)
 
+---
+
 ## Installation
 
 The library is included in the official Arduino library manger and the optimum way to install it is using the library manager which can be opened by the *manage libraries* option in Arduino IDE.
+
+---
 
 ## Dependency
 
@@ -48,13 +53,33 @@ a prompt, if it does not you have to install it same way as 'ILI9341_LTSM'.
 The 'display16_LTSM' project and readme is at [URL github link.](https://github.com/gavinlyonsrepo/display16_LTSM)
 'display16_LTSM' is also written by author of this library. 
 
+---
+
 ## Documentation
 
 Code is commented for the 'doxygen' API generation tool.
 Documents on fonts, bitmaps and graphics can be found at 
 the dependency 'display16_LTSM' repository, [URL github link](https://github.com/gavinlyonsrepo/display16_LTSM)
 
+---
+
 ## Software
+
+### Dependency user options
+
+There are options in the dependency 'display16_LTSM' library which can be set by the user. 
+These are set in the 'display16_LTSM' library's 'display16_common_LTSM.hpp' file.
+These options are referenced in note section of example files table below.
+See dependency section of this readme for url link to display16_LTSM for more information on the options.
+The options are:
+
+| Option | Description | Default |
+| --- | --- | --- |
+| dislib16_ADVANCED_GRAPHICS_ENABLE | Enable advanced graphics functions | OFF |
+| dislib16_ADVANCED_SCREEN_BUFFER_ENABLE | Enable advanced screen buffer mode | OFF |
+| dislib16_DEBUG_MODE_ENABLE | Enable debug messages to serial console | OFF |
+
+### Examples
 
 Example files included:
 
@@ -70,7 +95,7 @@ Example files included:
 | DEMO_FOUR| A demo showing control panel | ---- |
 | FRAME BUFFER | Testing frame Buffer mode | dislib16 ADVANCED SCREEN BUFFER ENABLE must be enabled  |
 
-### SPI
+### Setup
 
 In the example files, there are 2 sections in "setup()" function 
 where user can make adjustments. 
@@ -78,7 +103,7 @@ where user can make adjustments.
  * User Option 1 Setup()       Setup the GPIO & SPI
  * User Option 2 Setup()       Screen Setup 
 
-*USER OPTION 1 GPIO SPI SPEED*
+#### GPIO SPI SPEED
 
 Two different constructors which one is called depends on 'bhardwareSPI', 
 true for hardware spi, false for software SPI.
@@ -96,9 +121,11 @@ Setting this higher can be used to slow down Software SPI
 which may be beneficial on Fast MCU's.
 The 5 GPIO pins used. Any GPIO can be used for these.
 
-*USER OPTION 2 Screen size*
+#### Screen size
 
 User can adjust screen pixel height, screen pixel width.
+
+---
 
 ## Hardware
 
@@ -141,12 +168,10 @@ if user is not using the touch screen do not connect these.
 | 13 | T_DO | Tied to MISO | n/a | |
 | 14 | T_IRQ | GPIO14 | n/a |Use any GPIO for this line |
 
+---
 
 ## Output
 
 [![output pic 1](https://github.com/gavinlyonsrepo/Display_Lib_RPI/blob/main/extra/images/ili9341output3.jpg)](https://github.com/gavinlyonsrepo/Display_Lib_RPI/blob/main/extra/images/ili9341output3.jpg)
 
 [![output pic 2](https://github.com/gavinlyonsrepo/Display_Lib_RPI/blob/main/extra/images/ili9341output2.jpg)](https://github.com/gavinlyonsrepo/Display_Lib_RPI/blob/main/extra/images/ili9341output2.jpg)
-
-
-## Notes and Issues
