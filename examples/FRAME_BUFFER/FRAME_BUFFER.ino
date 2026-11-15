@@ -53,11 +53,12 @@ void setup(void) {
   uint16_t TFT_HEIGHT = 320;  // Screen height in pixels
   myTFT.SetupScreenSize(TFT_WIDTH, TFT_HEIGHT);
   // ===
-
-  if (myTFT.setBuffer() != DisLib16::Success) {
-    Serial.println("Buffer set failed");
-    while (1) {};
-  }
+  // set up buffer
+  // Set rotation BEFORE setBuffer(): the buffer is laid out for the display's
+  // current width and height. On a display where width != height, call
+  // setBuffer() again after every rotation change.
+  myTFT.setRotation(myTFT.Degrees_0); // Degrees_0 is the default, shown for clarity
+  SetBuffer();
   myTFT.setTextCharPixelOrBuffer(true);  // set to use pixel mode for text
   myTFT.ILI9341Initialize();
   Serial.println("Start");
@@ -116,24 +117,25 @@ void TestRotate(void) {
   Serial.println("Rotate");
   myTFT.fillScreen(myTFT.C_BLACK);
   myTFT.clearBuffer(myTFT.C_BLACK);
-  const char *rotationLabels[] = { "Rotate 0", "Rotate 90", "Rotate 180", "Rotate 270" };
+  const char *rotationLabels[] = { "Rotate 270", "Rotate 90", "Rotate 180", "Rotate 0" };
   const decltype(myTFT.Degrees_0) rotations[] = {
-    myTFT.Degrees_0,
+    myTFT.Degrees_270,
     myTFT.Degrees_90,
     myTFT.Degrees_180,
-    myTFT.Degrees_270
+    myTFT.Degrees_0
   };
   for (int i = 0; i < 4; ++i) {
     myTFT.setRotation(rotations[i]);
+    SetBuffer(); // reset buffer, needed if width != height
     myTFT.setCursor(20, 20);
     myTFT.print(rotationLabels[i]);
-    myTFT.setCursor(20, 100);
+    myTFT.setCursor(20, 220);
     myTFT.print("Bottom");
-    ScreenReset();
+    myTFT.writeBuffer();
+    delay(2500);
   }
-  myTFT.setRotation(myTFT.Degrees_0);
   myTFT.fillScreen(myTFT.C_BLACK);
-  ScreenReset();
+  myTFT.clearBuffer(myTFT.C_BLACK);
 }
 
 void TestBitmap(void) {
@@ -244,7 +246,7 @@ void TestTextFPS(void) {
       previousMillis = currentMillis;
       seconds++;
       //myTFT.clearBuffer(myTFT.C_BLACK);
-      if (count >= 500) {
+      if (count >= 100) {
         Serial.print("Seconds: ");
         Serial.println(seconds);
         Serial.print("FPS: ");
@@ -269,5 +271,13 @@ void TestTextFPS(void) {
     myTFT.writeBuffer();
     //  ****
   }
+}
+
+void SetBuffer(void)
+{
+    if (myTFT.setBuffer() != DisLib16::Success){
+      Serial.println("buffer not set");
+      while(1){};
+    }
 }
 /// @endcond
